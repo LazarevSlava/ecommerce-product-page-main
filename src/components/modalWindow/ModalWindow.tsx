@@ -7,7 +7,7 @@ interface ModalProps {
     children: React.ReactNode;
 }
 
-function Modal({ isOpen, onClose, children }: ModalProps) {
+function ModalWindow({ isOpen, onClose, children }: ModalProps) {
     if (!isOpen) return null;
     return (
         <>
@@ -35,4 +35,4 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
         </>
     );
 }
-export default Modal;
+export default ModalWindow;
