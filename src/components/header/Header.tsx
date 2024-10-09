@@ -1,8 +1,8 @@
-import { useState } from "react";
-import ModalWindow from "../modalWindow/ModalWindow";
-import style from "./header.module.scss";
-import imagePng from "../../assets/images/image-avatar.png";
-import CartWindow from "../cartWindow/CartWindow";
+import { useState } from 'react';
+import ModalWindow from '../modalWindow/ModalWindow';
+import style from './header.module.scss';
+import imagePng from '../../assets/images/image-avatar.png';
+import CartWindow from '../cartWindow/CartWindow';
 
 interface CartItem {
   id?: number;
@@ -14,7 +14,7 @@ interface CartItem {
 function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
-  const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
+  const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
   const cart: CartItem[] = [];
 
   const handleCartClick = () => {
@@ -22,10 +22,10 @@ function Header() {
   };
   return (
     <>
-      <div className={style["header-main"]}>
-        <div className={style["header-navigation"]}>
+      <div className={style['header-main']}>
+        <div className={style['header-navigation']}>
           <svg
-            className={style["menu"]}
+            className={style['menu']}
             onClick={() => setIsModalOpen(true)}
             width="16"
             height="15"
@@ -44,10 +44,10 @@ function Header() {
               fill-rule="nonzero"
             />
           </svg>
-          <div className={style["menu-items"]}>
-            {" "}
+          <div className={style['menu-items']}>
+            {' '}
             {menuItems.map((item) => (
-              <p className={style["items"]}>{item}</p>
+              <p className={style['items']}>{item}</p>
             ))}
           </div>
 
@@ -62,10 +62,10 @@ function Header() {
             </ul>
           </ModalWindow>
         </div>
-        <div className={style["header-profile"]}>
+        <div className={style['header-profile']}>
           <svg
             onClick={() => handleCartClick()}
-            className={style["cart"]}
+            className={style['cart']}
             width="22"
             height="20"
             xmlns="http://www.w3.org/2000/svg"
@@ -82,10 +82,10 @@ function Header() {
           >
             {cart}
           </CartWindow>
-          <img className={style["image"]} src={imagePng} alt="My Image" />
+          <img className={style['image']} src={imagePng} alt="My Image" />
         </div>
       </div>
-      <hr className={style["line"]}></hr>
+      <hr className={style['line']}></hr>
     </>
   );
 }
