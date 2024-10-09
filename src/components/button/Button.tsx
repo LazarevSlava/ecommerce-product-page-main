@@ -2,13 +2,13 @@ import style from './button.module.scss';
 import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+  children: React.ReactNode;
 }
 
-function Button({ label, ...props }: ButtonProps) {
+function Button({ children, ...props }: ButtonProps) {
   return (
     <button className={style['custom-button']} {...props}>
-      {label}
+      {children}
     </button>
   );
 }
