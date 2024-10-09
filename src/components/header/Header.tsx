@@ -79,9 +79,8 @@ function Header() {
           <CartWindow
             isOpen={isCartModalOpen}
             onClose={() => setIsCartModalOpen(false)}
-          >
-            {cart}
-          </CartWindow>
+            items={cart}
+          ></CartWindow>
           <img className={style['image']} src={imagePng} alt="My Image" />
         </div>
       </div>
