@@ -1,1 +1,79 @@
 @import '../utils/index.scss';
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.header-navigation {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.header-profile {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.image {
+    width: 2rem;
+    border: 0.2rem solid transparent;
+
+    &:hover {
+        cursor: pointer;
+        border-radius: 1rem;
+        border: 0.2rem solid $orange;
+    }
+}
+.menu-items {
+    display: none;
+}
+.cart {
+    cursor: pointer;
+}
+.line {
+    display: none;
+}
+.menu {
+    cursor: pointer;
+}
+
+@media (min-width: $tablet) {
+    .header-main {
+        padding: 0;
+    }
+    .menu {
+        display: none;
+        cursor: pointer;
+    }
+    .header-profile {
+        padding: 0 3rem;
+        gap: 2rem;
+    }
+    .header-navigation {
+        padding: 0 3rem;
+        gap: 2rem;
+    }
+    .menu-items {
+        display: flex;
+        gap: 1rem;
+        color: $darkGrayishBlue;
+    }
+    .items {
+        cursor: pointer;
+        padding: 2rem 0;
+        border-bottom: 0.2rem solid transparent;
+        border-top: 0.2rem solid transparent;
+
+        &:hover {
+            color: black;
+            border-bottom-color: $orange;
+        }
+    }
+    .line {
+        display: block;
+        height: 0.1rem;
+        background-color: $darkGrayishBlue;
+        margin: 0 3rem;
+    }
+}
