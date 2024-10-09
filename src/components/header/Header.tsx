@@ -86,7 +86,8 @@ function Header() {
             isOpen={modalState.isCartModalOpen}
             onClose={() => toggleModal('isCartModalOpen')}
             items={cart}
-          ></CartWindow>
+          />
+
           <img className={style['image']} src={imagePng} alt="My Image" />
         </div>
       </div>
