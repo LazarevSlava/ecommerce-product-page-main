@@ -27,7 +27,7 @@ function CartWindow({ isOpen, onClose, items = [] }: CartProps) {
             : 'Your cart is empty'}
         </div>
         <div>
-          {items.length > 0 && <Button label="Checkout" onClick={onClose} />}
+          {items.length > 0 && <Button onClick={onClose}>Checkout</Button>}
         </div>
       </div>
     </div>

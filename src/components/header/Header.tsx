@@ -51,9 +51,10 @@ function Header() {
             />
           </svg>
           <div className={style['menu-items']}>
-            {' '}
-            {menuItems.map((item) => (
-              <p className={style['items']}>{item}</p>
+            {menuItems.map((item, index) => (
+              <p key={index} className={style['items']}>
+                {item}
+              </p>
             ))}
           </div>
 
