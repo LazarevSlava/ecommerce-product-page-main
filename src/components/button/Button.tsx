@@ -1,25 +1,13 @@
 import style from './button.module.scss';
+import { ButtonHTMLAttributes } from 'react';
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
-  onClick: () => void;
-  type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
 }
 
-function Button({
-  label,
-  onClick,
-  type = 'button',
-  disabled = false,
-}: ButtonProps) {
+function Button({ label, ...props }: ButtonProps) {
   return (
-    <button
-      className={style['custom-button']}
-      onClick={onClick}
-      type={type}
-      disabled={disabled}
-    >
+    <button className={style['custom-button']} {...props}>
       {label}
     </button>
   );

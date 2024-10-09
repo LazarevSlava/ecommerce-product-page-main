@@ -12,21 +12,27 @@ interface CartItem {
 }
 
 function Header() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+  const [modalState, setModalState] = useState({
+    isModalOpen: false,
+    isCartModalOpen: false,
+  });
+
   const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
   const cart: CartItem[] = [];
-
-  const handleCartClick = () => {
-    setIsCartModalOpen((prevState) => !prevState);
+  const toggleModal = (modalType: 'isModalOpen' | 'isCartModalOpen') => {
+    setModalState((prevState) => ({
+      ...prevState,
+      [modalType]: !prevState[modalType],
+    }));
   };
+
   return (
     <>
       <div className={style['header-main']}>
         <div className={style['header-navigation']}>
           <svg
             className={style['menu']}
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => toggleModal('isModalOpen')}
             width="16"
             height="15"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,8 +58,8 @@ function Header() {
           </div>
 
           <ModalWindow
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
+            isOpen={modalState.isModalOpen}
+            onClose={() => toggleModal('isCartModalOpen')}
           >
             <ul>
               {menuItems.map((item, index) => (
@@ -64,7 +70,7 @@ function Header() {
         </div>
         <div className={style['header-profile']}>
           <svg
-            onClick={() => handleCartClick()}
+            onClick={() => toggleModal('isCartModalOpen')}
             className={style['cart']}
             width="22"
             height="20"
@@ -77,14 +83,14 @@ function Header() {
             />
           </svg>
           <CartWindow
-            isOpen={isCartModalOpen}
-            onClose={() => setIsCartModalOpen(false)}
+            isOpen={modalState.isCartModalOpen}
+            onClose={() => toggleModal('isCartModalOpen')}
             items={cart}
           ></CartWindow>
           <img className={style['image']} src={imagePng} alt="My Image" />
         </div>
       </div>
-      <hr className={style['line']}></hr>
+      <hr className={style['line']} />
     </>
   );
 }

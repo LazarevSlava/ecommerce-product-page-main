@@ -23,6 +23,14 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'react/self-closing-comp': [
+        'error',
+        {
+          html: true,
+          svg: true,
+          math: true,
+        },
+      ],
     },
   },
 );
