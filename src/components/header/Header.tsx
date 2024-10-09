@@ -5,8 +5,8 @@ import imagePng from '../../assets/images/image-avatar.png';
 import CartWindow from '../cartWindow/CartWindow';
 
 interface CartItem {
-  id?: number;
-  name?: string;
+  id: number;
+  name: string;
   price?: number;
   quantity?: number;
 }
