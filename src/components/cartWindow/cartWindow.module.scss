@@ -1,0 +1,41 @@
+@import '../utils/index.scss';
+
+.modal-overlay {
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 95%;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+
+  @media (min-width: $tablet) {
+    left: 75%;
+    transform: translate(-50%, 0);
+    width: 20rem;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  overflow-y: auto;
+  position: relative;
+}
+.cart-content {
+  padding: 1.5rem 0;
+  color: $grayishBlue;
+  text-align: center;
+}
+.line {
+  height: 0.1rem;
+  background-color: $darkGrayishBlue;
+  margin: 0 -2rem;
+}
