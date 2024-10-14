@@ -61,6 +61,7 @@ function Header() {
         </div>
         <div className={style['header-profile']}>
           <CartIcon
+            fill={' hsl(219, 9%, 45%)'}
             onClick={() => toggleModal('isCartModalOpen')}
             className={style['cart']}
           />

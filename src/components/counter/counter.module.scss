@@ -1,0 +1,30 @@
+@import '../utils/index.scss';
+.counter {
+  background-color: $lightGrayishBlue;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+.decrement,
+.increment {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  background-color: $lightGrayishBlue;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
