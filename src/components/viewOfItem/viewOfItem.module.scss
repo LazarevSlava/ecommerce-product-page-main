@@ -1,4 +1,9 @@
 @import '../utils/index.scss';
 @import '../utils/index.scss';
-.main {
+@media (min-width: $tablet) {
+  .main {
+    display: flex;
+    gap: 3rem;
+    padding: 2rem 4rem;
+  }
 }
