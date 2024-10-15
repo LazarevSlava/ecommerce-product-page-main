@@ -1,23 +1,26 @@
 @import '../utils/index.scss';
 
 .custom-button {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    background-color: $orange;
-    color: black;
-    font-family: $mainFont;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: $orange;
+  color: black;
+  font-family: $mainFont;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-    &:hover {
-        background-color: $paleOrange;
-    }
+  &:hover {
+    background-color: $paleOrange;
+  }
 
-    &:disabled {
-        background-color: $paleOrange;
-        cursor: not-allowed;
-    }
+  &:disabled {
+    background-color: $paleOrange;
+    cursor: not-allowed;
+  }
 }
