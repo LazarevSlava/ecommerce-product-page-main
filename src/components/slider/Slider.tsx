@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import style from './slider.module.scss';
+
 import NextIcon from '../icons/NextIcon';
 import PreviousIcon from '../icons/PreviousIcon';
 
@@ -16,6 +17,10 @@ interface ImagePair {
   main: string;
   thumbnail: string;
 }
+interface SliderProps {
+  customArrowLeftClass?: string;
+  customArrowRightClass?: string;
+}
 
 const imagePair: ImagePair[] = [
   { main: img1Main, thumbnail: img1Thumb },
@@ -24,7 +29,10 @@ const imagePair: ImagePair[] = [
   { main: img4Main, thumbnail: img4Thumb },
 ];
 
-function Slider() {
+function Slider({
+  customArrowLeftClass = '',
+  customArrowRightClass = '',
+}: SliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const goToPrevious = () => {
     setCurrentIndex(
@@ -41,7 +49,10 @@ function Slider() {
   };
   return (
     <div className={style['slider']}>
-      <button onClick={goToPrevious} className={style['arrowLeft']}>
+      <button
+        onClick={goToPrevious}
+        className={`${style['arrowLeft']} ${customArrowLeftClass}  `}
+      >
         <PreviousIcon />
       </button>
       <div className={style['mainImageContainer']}>
@@ -51,7 +62,10 @@ function Slider() {
           alt={`Slide ${currentIndex + 1}`}
         />
       </div>
-      <button className={style['arrowRight']} onClick={goToNext}>
+      <button
+        className={`${style['arrowRight']} ${customArrowRightClass}`}
+        onClick={goToNext}
+      >
         <NextIcon />
       </button>
       <div className={style['thumbnailContainer']}>
