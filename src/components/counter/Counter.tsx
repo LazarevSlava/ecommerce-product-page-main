@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './Counter.module.scss';
+import styles from './counter.module.scss';
 import PlusIcon from '../icons/PlusIcon';
 import MinusIcon from '../icons/MinusIcon';
 
