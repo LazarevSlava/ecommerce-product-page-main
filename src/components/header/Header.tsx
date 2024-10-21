@@ -3,9 +3,10 @@ import ModalWindow from '../modalWindow/ModalWindow';
 import style from './header.module.scss';
 import imagePng from '../../assets/images/image-avatar.png';
 import CartWindow from '../cartWindow/CartWindow';
-import CartIcon from '../icons/CartIcon';
-import MenuIcon from '../icons/MenuIcon';
-import NameIcon from '../icons/NameIcon';
+import CartIcon from '../../assets/images/icon-cart.svg';
+import MenuIcon from '../../assets/images/icon-menu.svg';
+import NameIcon from '../../assets/images/icon-name.svg';
+
 interface CartItem {
   id: number;
   name: string;
