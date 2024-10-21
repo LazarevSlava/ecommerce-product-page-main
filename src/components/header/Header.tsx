@@ -6,6 +6,7 @@ import CartWindow from '../cartWindow/CartWindow';
 import CartIcon from '../icons/CartIcon';
 import MenuIcon from '../icons/MenuIcon';
 import NameIcon from '../icons/NameIcon';
+import ModalSlider from '../modalSlider/ModalSlider';
 interface CartItem {
   id: number;
   name: string;
@@ -17,11 +18,14 @@ function Header() {
   const [modalState, setModalState] = useState({
     isModalOpen: false,
     isCartModalOpen: false,
+    isModalSliderOpen: false,
   });
 
   const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
   const cart: CartItem[] = [];
-  const toggleModal = (modalType: 'isModalOpen' | 'isCartModalOpen') => {
+  const toggleModal = (
+    modalType: 'isModalOpen' | 'isCartModalOpen' | 'isModalSliderOpen',
+  ) => {
     setModalState((prevState) => ({
       ...prevState,
       [modalType]: !prevState[modalType],
@@ -38,8 +42,14 @@ function Header() {
               if (!modalState.isCartModalOpen) toggleModal('isModalOpen');
             }}
           />
-          <NameIcon />
-
+          <NameIcon
+            className={style['nameIcon']}
+            onClick={() => toggleModal('isModalSliderOpen')}
+          />
+          <ModalSlider
+            isOpen={modalState.isModalSliderOpen}
+            onClose={() => toggleModal('isModalSliderOpen')}
+          />
           <div className={style['menu-items']}>
             {menuItems.map((item, index) => (
               <p key={index} className={style['items']}>
@@ -61,6 +71,7 @@ function Header() {
         </div>
         <div className={style['header-profile']}>
           <CartIcon
+            fill={'hsl(219, 9%, 45%)'}
             onClick={() => toggleModal('isCartModalOpen')}
             className={style['cart']}
           />
