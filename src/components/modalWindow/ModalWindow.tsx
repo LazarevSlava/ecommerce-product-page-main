@@ -1,6 +1,7 @@
 import React from 'react';
+
 import style from './modalWindow.module.scss';
-import CloseIcon from '../icons/CloseIcon';
+import CloseIcon from '../../assets/images/icon-close.svg?react';
 
 interface ModalProps {
   isOpen: boolean;
