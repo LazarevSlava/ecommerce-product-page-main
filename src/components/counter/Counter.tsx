@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './counter.module.scss';
 import PlusIcon from '../icons/PlusIcon';
 import MinusIcon from '../icons/MinusIcon';
+import IconButton from '../button/IconButton';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -16,13 +17,17 @@ function Counter() {
 
   return (
     <div className={styles['counter']}>
-      <button className={styles['decrement']} onClick={decrement}>
+      <IconButton
+        disabled={count === 0}
+        className={styles['decrement']}
+        onClick={decrement}
+      >
         <MinusIcon />
-      </button>
+      </IconButton>
       <div className={styles['count']}>{count}</div>
-      <button className={styles['increment']} onClick={increment}>
+      <IconButton className={styles['increment']} onClick={increment}>
         <PlusIcon />
-      </button>
+      </IconButton>
     </div>
   );
 }
