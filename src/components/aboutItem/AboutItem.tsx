@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from './slices/cartSlice';
 import styles from './aboutItem.module.scss';
 import Button from '../button/Button';
 import Counter from '../counter/Counter';
@@ -6,6 +8,7 @@ import CartIcon from '../icons/CartIcon';
 
 function AboutItem() {
   const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
 
   return (
     <div className={styles['product']}>
