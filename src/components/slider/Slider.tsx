@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import style from './slider.module.scss';
-
 import NextIcon from '../icons/NextIcon';
 import PreviousIcon from '../icons/PreviousIcon';
 

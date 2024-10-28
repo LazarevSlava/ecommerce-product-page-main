@@ -1,7 +1,7 @@
 import style from './modalSlider.module.scss';
 import CloseIcon from '../icons/CloseIcon';
 import Slider from '../slider/Slider';
-import { product } from '../../productData/productData';
+import { products } from '../../productData/productData';
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -17,7 +17,7 @@ function ModalSlider({ isOpen, onClose }: ModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         <Slider
-          images={product.images}
+          images={products[0].images}
           customArrowLeftClass={style['custom-left']}
           customArrowRightClass={style['custom-right']}
         />
