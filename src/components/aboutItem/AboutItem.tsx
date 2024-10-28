@@ -17,6 +17,7 @@ function AboutItem({ name, price, image }: AboutItemProps) {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
+    if (count === 0) return;
     dispatch(
       addItemToCart({
         id: 1,
