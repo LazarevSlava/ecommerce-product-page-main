@@ -4,7 +4,7 @@ import CartItem from '../cartItem/CartItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 import { removeItemFromCart } from '../../slices/cartSlice';
-
+import { decreaseQuantityProduct } from '../../slices/quantityCartProductSlice';
 interface CartItem {
   id: number;
   image: string;
@@ -25,6 +25,7 @@ function CartWindow({ isOpen, onClose }: CartProps) {
 
   const handleRemove = (id: number) => {
     dispatch(removeItemFromCart(id));
+    dispatch(decreaseQuantityProduct());
   };
 
   if (!isOpen) return null;

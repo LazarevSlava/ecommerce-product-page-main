@@ -1,23 +1,31 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../../slices/cartSlice';
+import { setQuantityProduct } from '../../slices/quantityCartProductSlice';
 import styles from './aboutItem.module.scss';
 import Button from '../button/Button';
 import Counter from '../counter/Counter';
 import CartIcon from '../icons/CartIcon';
+import { RootState } from '../../store';
 
 interface AboutItemProps {
   name: string;
   price: number;
   image: string;
+  id: number;
 }
 
-function AboutItem({ name, price, image }: AboutItemProps) {
+function AboutItem({ id, name, price, image }: AboutItemProps) {
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   const handleAddToCart = () => {
     if (count === 0) return;
+    const isProductInCart = cartItems.some((item) => item.id === id);
+    if (!isProductInCart) {
+      dispatch(setQuantityProduct(cartItems.length + 1));
+    }
     dispatch(
       addItemToCart({
         id: 1,

@@ -16,28 +16,30 @@ export interface Product {
   id: number;
   name: string;
   images: ImagePair[];
-  price:number;
+  price: number;
 }
 
-export const products: Product [] = [{
-  id: 1,
-  name: 'Fall Limited Edition Sneakers',
-  images: [
-    { main: img1Main, thumbnail: img1Thumb },
-    { main: img2Main, thumbnail: img2Thumb },
-    { main: img3Main, thumbnail: img3Thumb },
-    { main: img4Main, thumbnail: img4Thumb },
-  ],
-  price:125,
-},
-{
-  id: 2,
-  name: 'Product 2',
-  images: [
-    { main: img1Main, thumbnail: img1Thumb },
-    { main: img2Main, thumbnail: img2Thumb },
-    { main: img3Main, thumbnail: img3Thumb },
-    { main: img4Main, thumbnail: img4Thumb },
-  ],
-  price:90,
-}];
+export const products: Product[] = [
+  {
+    id: 1,
+    name: 'Fall Limited Edition Sneakers',
+    images: [
+      { main: img1Main, thumbnail: img1Thumb },
+      { main: img2Main, thumbnail: img2Thumb },
+      { main: img3Main, thumbnail: img3Thumb },
+      { main: img4Main, thumbnail: img4Thumb },
+    ],
+    price: 125,
+  },
+  {
+    id: 2,
+    name: 'Product 2',
+    images: [
+      { main: img1Main, thumbnail: img1Thumb },
+      { main: img2Main, thumbnail: img2Thumb },
+      { main: img3Main, thumbnail: img3Thumb },
+      { main: img4Main, thumbnail: img4Thumb },
+    ],
+    price: 90,
+  },
+];

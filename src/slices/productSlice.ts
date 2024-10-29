@@ -5,7 +5,7 @@ interface ProductState {
 }
 
 const initialState: ProductState = {
-  selectedProductId: 2,
+  selectedProductId: 1,
 };
 
 const productSlice = createSlice({

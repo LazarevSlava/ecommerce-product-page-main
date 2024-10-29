@@ -7,6 +7,9 @@ import CartIcon from '../icons/CartIcon';
 import MenuIcon from '../icons/MenuIcon';
 import NameIcon from '../icons/NameIcon';
 import ModalSlider from '../modalSlider/ModalSlider';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+
 interface CartItem {
   id: number;
   name: string;
@@ -20,6 +23,9 @@ function Header() {
     isCartModalOpen: false,
     isModalSliderOpen: false,
   });
+  const uniqueProductCount = useSelector(
+    (state: RootState) => state.quantity.quantityProduct,
+  );
 
   const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
   const cart: CartItem[] = [];
@@ -70,11 +76,18 @@ function Header() {
           </ModalWindow>
         </div>
         <div className={style['header-profile']}>
-          <CartIcon
-            fill={'hsl(219, 9%, 45%)'}
-            onClick={() => toggleModal('isCartModalOpen')}
-            className={style['cart']}
-          />
+          <div className={style['cartBlock']}>
+            <CartIcon
+              fill={'hsl(219, 9%, 45%)'}
+              onClick={() => toggleModal('isCartModalOpen')}
+              className={style['cart']}
+            />
+            {uniqueProductCount > 0 ? (
+              <span className={style.numberOfProduct}>
+                {uniqueProductCount}
+              </span>
+            ) : null}
+          </div>
           <CartWindow
             isOpen={modalState.isCartModalOpen}
             onClose={() => toggleModal('isCartModalOpen')}

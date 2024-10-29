@@ -19,6 +19,7 @@ function ViewOfItem() {
     <div className={style['main']}>
       <Slider images={selectedProduct.images} />
       <AboutItem
+        id={selectedProduct.id}
         name={selectedProduct.name}
         price={selectedProduct.price}
         image={selectedProduct.images[0].main}
