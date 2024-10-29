@@ -10,11 +10,13 @@ import ModalSlider from '../modalSlider/ModalSlider';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
-interface CartItem {
+interface HeaderCartItem {
   id: number;
   name: string;
-  price?: number;
-  quantity?: number;
+  price: number;
+  quantity: number;
+  image: string;
+  onRemove: () => void;
 }
 
 function Header() {
@@ -28,7 +30,7 @@ function Header() {
   );
 
   const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
-  const cart: CartItem[] = [];
+  const cart: HeaderCartItem[] = [];
   const toggleModal = (
     modalType: 'isModalOpen' | 'isCartModalOpen' | 'isModalSliderOpen',
   ) => {
