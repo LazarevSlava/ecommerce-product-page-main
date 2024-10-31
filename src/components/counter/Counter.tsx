@@ -1,6 +1,6 @@
 import styles from './counter.module.scss';
-import PlusIcon from '../icons/PlusIcon';
-import MinusIcon from '../icons/MinusIcon';
+import PlusIcon from '../../assets/images/icon-plus.svg';
+import MinusIcon from '../../assets/images/icon-minus.svg';
 import IconButton from '../button/IconButton';
 
 interface CounterProps {

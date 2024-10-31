@@ -5,7 +5,7 @@ import { setQuantityProduct } from '../../slices/quantityCartProductSlice';
 import styles from './aboutItem.module.scss';
 import Button from '../button/Button';
 import Counter from '../counter/Counter';
-import CartIcon from '../icons/CartIcon';
+import CartIcon from '../../assets/images/icon-cart.svg';
 interface AboutItemProps {
   name: string;
   price: number;

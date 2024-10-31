@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import style from './slider.module.scss';
-import NextIcon from '../icons/NextIcon';
-import PreviousIcon from '../icons/PreviousIcon';
+import NextIcon from '../../assets/images/icon-next.svg';
+import PreviousIcon from '../../assets/images/icon-previous.svg';
 
 interface ImagePair {
   main: string;

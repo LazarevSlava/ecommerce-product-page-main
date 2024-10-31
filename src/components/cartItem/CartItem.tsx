@@ -1,5 +1,5 @@
 import styles from './cartItem.module.scss';
-import Wastebasket from '../icons/Wastebasket';
+import Wastebasket from '../../assets/images/icon-delete.svg';
 
 interface CartItemProps {
   image: string;

@@ -1,5 +1,5 @@
 import style from './modalSlider.module.scss';
-import CloseIcon from '../icons/CloseIcon';
+import CloseIcon from '../../assets/images/icon-close.svg';
 import Slider from '../slider/Slider';
 import { products } from '../../productData/productData';
 interface ModalProps {
