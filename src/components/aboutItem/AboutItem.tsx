@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hook';
 import { addItemToCart } from '../../slices/cartSlice';
 import { setQuantityProduct } from '../../slices/quantityCartProductSlice';
 import styles from './aboutItem.module.scss';
 import Button from '../button/Button';
 import Counter from '../counter/Counter';
 import CartIcon from '../icons/CartIcon';
-import { RootState } from '../../store';
-
 interface AboutItemProps {
   name: string;
   price: number;
@@ -17,8 +15,8 @@ interface AboutItemProps {
 
 function AboutItem({ id, name, price, image }: AboutItemProps) {
   const [count, setCount] = useState(0);
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector((state) => state.cart.items);
 
   const handleAddToCart = () => {
     if (count === 0) return;

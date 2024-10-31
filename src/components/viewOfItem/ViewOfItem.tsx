@@ -2,12 +2,11 @@ import AboutItem from '../aboutItem/AboutItem';
 import Slider from '../slider/Slider';
 import style from './viewOfItem.module.scss';
 import { products } from '../../productData/productData';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { useAppSelector } from '../../hook';
 
 function ViewOfItem() {
-  const selectedProductId = useSelector(
-    (state: RootState) => state.products.selectedProductId,
+  const selectedProductId = useAppSelector(
+    (state) => state.products.selectedProductId,
   );
   const selectedProduct = products.find(
     (products) => products.id === selectedProductId,

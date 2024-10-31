@@ -1,8 +1,7 @@
 import style from './cartWindow.module.scss';
 import Button from '../button/Button';
 import CartItem from '../cartItem/CartItem';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../hook';
 import { removeItemFromCart } from '../../slices/cartSlice';
 import { decreaseQuantityProduct } from '../../slices/quantityCartProductSlice';
 interface CartItem {
@@ -20,8 +19,8 @@ interface CartProps {
 }
 
 function CartWindow({ isOpen, onClose }: CartProps) {
-  const dispatch = useDispatch();
-  const items = useSelector((state: RootState) => state.cart.items);
+  const dispatch = useAppDispatch();
+  const items = useAppSelector((state) => state.cart.items);
 
   const handleRemove = (id: number) => {
     dispatch(removeItemFromCart(id));

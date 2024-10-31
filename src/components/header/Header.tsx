@@ -7,8 +7,7 @@ import CartIcon from '../icons/CartIcon';
 import MenuIcon from '../icons/MenuIcon';
 import NameIcon from '../icons/NameIcon';
 import ModalSlider from '../modalSlider/ModalSlider';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { useAppSelector } from '../../hook';
 
 interface HeaderCartItem {
   id: number;
@@ -25,8 +24,8 @@ function Header() {
     isCartModalOpen: false,
     isModalSliderOpen: false,
   });
-  const uniqueProductCount = useSelector(
-    (state: RootState) => state.quantity.quantityProduct,
+  const uniqueProductCount = useAppSelector(
+    (state) => state.quantity.quantityProduct,
   );
 
   const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
