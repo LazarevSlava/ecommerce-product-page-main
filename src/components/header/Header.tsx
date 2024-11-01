@@ -3,15 +3,19 @@ import ModalWindow from '../modalWindow/ModalWindow';
 import style from './header.module.scss';
 import imagePng from '../../assets/images/image-avatar.png';
 import CartWindow from '../cartWindow/CartWindow';
-import CartIcon from '../icons/CartIcon';
-import MenuIcon from '../icons/MenuIcon';
-import NameIcon from '../icons/NameIcon';
+import CartIcon from '../../assets/images/icon-cart.svg';
+import MenuIcon from '../../assets/images/icon-menu.svg';
+import NameIcon from '../../assets/images/logo.svg';
 import ModalSlider from '../modalSlider/ModalSlider';
-interface CartItem {
+import { useAppSelector } from '../../hook';
+
+interface HeaderCartItem {
   id: number;
   name: string;
-  price?: number;
-  quantity?: number;
+  price: number;
+  quantity: number;
+  image: string;
+  onRemove: () => void;
 }
 
 function Header() {
@@ -20,9 +24,12 @@ function Header() {
     isCartModalOpen: false,
     isModalSliderOpen: false,
   });
+  const uniqueProductCount = useAppSelector(
+    (state) => state.quantity.quantityProduct,
+  );
 
   const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
-  const cart: CartItem[] = [];
+  const cart: HeaderCartItem[] = [];
   const toggleModal = (
     modalType: 'isModalOpen' | 'isCartModalOpen' | 'isModalSliderOpen',
   ) => {
@@ -70,11 +77,18 @@ function Header() {
           </ModalWindow>
         </div>
         <div className={style['header-profile']}>
-          <CartIcon
-            fill={'hsl(219, 9%, 45%)'}
-            onClick={() => toggleModal('isCartModalOpen')}
-            className={style['cart']}
-          />
+          <div className={style['cartBlock']}>
+            <CartIcon
+              fill={'hsl(219, 9%, 45%)'}
+              onClick={() => toggleModal('isCartModalOpen')}
+              className={style['cart']}
+            />
+            {uniqueProductCount > 0 ? (
+              <span className={style.numberOfProduct}>
+                {uniqueProductCount}
+              </span>
+            ) : null}
+          </div>
           <CartWindow
             isOpen={modalState.isCartModalOpen}
             onClose={() => toggleModal('isCartModalOpen')}

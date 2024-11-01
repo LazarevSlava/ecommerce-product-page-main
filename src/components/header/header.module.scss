@@ -41,6 +41,22 @@
 .menu {
   cursor: pointer;
 }
+.cartBlock {
+  position: relative;
+}
+.numberOfProduct {
+  position: absolute;
+  left: 1rem;
+  top: -0.5rem;
+  background-color: $orange;
+  color: white;
+  width: 1.4rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media (min-width: $tablet) {
   .header-main {

@@ -1,30 +1,27 @@
-import { useState } from 'react';
 import styles from './counter.module.scss';
-import PlusIcon from '../icons/PlusIcon';
-import MinusIcon from '../icons/MinusIcon';
+import PlusIcon from '../../assets/images/icon-plus.svg';
+import MinusIcon from '../../assets/images/icon-minus.svg';
 import IconButton from '../button/IconButton';
 
-function Counter() {
-  const [count, setCount] = useState(0);
+interface CounterProps {
+  value: number;
+  onChange: (newValue: number) => void;
+}
 
-  const increment = () => {
-    setCount((prev) => prev + 1);
-  };
-
-  const decrement = () => {
-    setCount((prev) => (prev > 0 ? prev - 1 : 0));
-  };
+function Counter({ value, onChange }: CounterProps) {
+  const increment = () => onChange(value + 1);
+  const decrement = () => onChange(value > 0 ? value - 1 : 0);
 
   return (
     <div className={styles['counter']}>
       <IconButton
-        disabled={count === 0}
+        disabled={value === 0}
         className={styles['decrement']}
         onClick={decrement}
       >
         <MinusIcon />
       </IconButton>
-      <div className={styles['count']}>{count}</div>
+      <div className={styles['count']}>{value}</div>
       <IconButton className={styles['increment']} onClick={increment}>
         <PlusIcon />
       </IconButton>

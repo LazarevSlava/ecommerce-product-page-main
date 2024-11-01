@@ -1,0 +1,48 @@
+@import '../utils/index.scss';
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.image {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  flex-grow: 1;
+  text-align: left;
+  gap: 1rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 0.9rem;
+  color: $darkGrayishBlue;
+}
+
+.total {
+  font-weight: bold;
+  color: black;
+}
+
+.removeButton {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  color: black;
+}
