@@ -1,13 +1,16 @@
 import style from './modalSlider.module.scss';
 import CloseIcon from '../../assets/images/icon-close.svg';
 import Slider from '../slider/Slider';
-import { products } from '../../productData/productData';
+import { useAppSelector } from '../../hook';
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 function ModalSlider({ isOpen, onClose }: ModalProps) {
+  const products = useAppSelector((state) => state.products.products);
+
   if (!isOpen) return null;
 
   return (

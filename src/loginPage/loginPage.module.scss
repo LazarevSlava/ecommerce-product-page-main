@@ -1,0 +1,44 @@
+@import '../components/utils/index.scss';
+
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $grayishBlue;
+}
+
+.logoContainer {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm {
+  width: 100%;
+  max-width: 30rem;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.1rem solid $grayishBlue;
+  border-radius: 0.2rem;
+  box-sizing: border-box;
+}

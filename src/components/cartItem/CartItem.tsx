@@ -12,7 +12,11 @@ function CartItem({ image, name, price, quantity, onRemove }: CartItemProps) {
   const total = price * quantity;
   return (
     <div className={styles.cartItem}>
-      <img src={image} alt={name} className={styles.image} />
+      <img
+        src={`http://localhost:3000/${image}`}
+        alt={name}
+        className={styles.image}
+      />
       <div className={styles.details}>
         <p className={styles.name}>{name}</p>
         <p className={styles.price}>

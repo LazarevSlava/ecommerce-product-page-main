@@ -39,7 +39,7 @@ function Slider({
       <div className={style['mainImageContainer']}>
         <img
           className={style['mainImage']}
-          src={images[currentIndex].main}
+          src={`http://localhost:3000/${images[currentIndex].main}`}
           alt={`Slide ${currentIndex + 1}`}
         />
       </div>
@@ -53,7 +53,7 @@ function Slider({
         {images.map((pair, index) => (
           <img
             key={index}
-            src={pair.thumbnail}
+            src={`http://localhost:3000/${pair.thumbnail}`}
             alt={`Thumbnail ${index + 1}`}
             onClick={() => goToImage(index)}
             className={`${style.thumbnail} ${index === currentIndex ? style.active : ''}`}
