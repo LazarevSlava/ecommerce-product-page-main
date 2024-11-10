@@ -1,25 +1,35 @@
-import { useState } from 'react';
+// src/components/LoginPage.tsx
+import { useState, useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../hook';
+import { login } from '../slices/authSlice';
+import { useNavigate } from 'react-router-dom';
 import style from './LoginPage.module.scss';
 import Button from '../components/button/Button';
 import NameIcon from '../assets/images/logo.svg';
 
-interface LoginPageProps {
-  onLogin: (username: string, password: string) => void;
-}
-
-function LoginPage({ onLogin }: LoginPageProps) {
+function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const authStatus = useAppSelector((state) => state.auth.status);
+  const authError = useAppSelector((state) => state.auth.error);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    onLogin(username, password);
+    dispatch(login({ username, password }));
   };
+
+  useEffect(() => {
+    if (authStatus === 'succeeded') {
+      navigate('/');
+    }
+  }, [authStatus, navigate]);
 
   return (
     <div className={style.loginPage}>
       <div className={style.logoContainer}>
-        <NameIcon className={style['logo']} />
+        <NameIcon className={style.logo} />
       </div>
       <form onSubmit={handleSubmit} className={style.loginForm}>
         <div className={style.formGroup}>
@@ -44,7 +54,9 @@ function LoginPage({ onLogin }: LoginPageProps) {
             required
           />
         </div>
-        <Button type="submit">{'Submit'}</Button>
+        <Button type="submit">Login</Button>
+        {authStatus === 'loading' && <p>Loading...</p>}
+        {authStatus === 'failed' && <p className={style.error}>{authError}</p>}
       </form>
     </div>
   );

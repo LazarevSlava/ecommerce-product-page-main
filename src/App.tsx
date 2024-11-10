@@ -1,34 +1,29 @@
 import './App.scss';
-import { useState } from 'react';
-import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from './hook';
 import Header from './components/header/Header';
 import ViewOfItem from './components/viewOfItem/ViewOfItem';
-import { fetchProducts } from './productAction';
-import { useAppDispatch } from './hook';
 import LoginPage from './loginPage/LoginPage';
+import { fetchProducts } from './productAction';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const token = useAppSelector((state) => state.auth.token);
 
-  const handleLogin = (username: string, password: string) => {
-    if (username === '1' && password === '1') {
-      setIsAuthenticated(true);
+  useEffect(() => {
+    if (token) {
       dispatch(fetchProducts());
-      navigate('/');
-    } else {
-      alert('Wrong login or password');
     }
-  };
+  }, [token, dispatch]);
 
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route
         path="/"
         element={
-          isAuthenticated ? (
+          token ? (
             <>
               <Header />
               <ViewOfItem />
