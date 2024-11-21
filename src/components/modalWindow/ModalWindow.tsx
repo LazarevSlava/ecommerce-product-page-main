@@ -1,4 +1,5 @@
 import React from 'react';
+
 import style from './modalWindow.module.scss';
 import CloseIcon from '../../assets/images/icon-close.svg';
 
