@@ -15,4 +15,5 @@ export default defineConfig({
       include: '**/*.svg',
     }),
   ],
+  base: 'ecommerce-product-page-main',
 });
